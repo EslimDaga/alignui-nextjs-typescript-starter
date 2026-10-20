@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='es' className={inter.variable} suppressHydrationWarning>
       <body>
-        <ThemeProvider attribute='class'>
+        <ThemeProvider attribute='class' disableTransitionOnChange>
           <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>
       </body>
@@ -108,14 +108,15 @@ export default function CliPage() {
           <Prose>
             <p>
               AlignUI está diseñado con Inter. Expónla como{' '}
-              <code>--font-inter</code> y mapéala en tu CSS. El modo oscuro usa
-              la clase <code>dark</code> en <code>&lt;html&gt;</code>.
+              <code>--font-inter</code> y mapéala en tu CSS. El modo oscuro es
+              opcional: solo se activa con la clase <code>dark</code> en{' '}
+              <code>&lt;html&gt;</code>, nunca por el sistema operativo.
             </p>
           </Prose>
           <CodeBlock
             lang='css'
             title='app/globals.css'
-            code={`@import "tailwindcss";\n@import "tw-animate-css";\n@import "../lib/alignui.css";\n\n@theme inline {\n  --font-sans: var(--font-inter);\n}\n\n@layer base {\n  button:not(:disabled),\n  [role="button"]:not(:disabled) {\n    cursor: pointer;\n  }\n}`}
+            code={`@import "tailwindcss";\n@import "tw-animate-css";\n@import "../lib/alignui.css";\n\n@custom-variant dark (&:where(.dark, .dark *));\n\n@theme inline {\n  --font-sans: var(--font-inter);\n}\n\n@layer base {\n  button:not(:disabled),\n  [role="button"]:not(:disabled) {\n    cursor: pointer;\n  }\n}`}
           />
           <CodeBlock lang='tsx' title='app/layout.tsx' code={LAYOUT} />
           <Prose>
@@ -141,15 +142,16 @@ export default function CliPage() {
       <Alert.Root variant='lighter' status='warning' size='large'>
         <Alert.Icon as={RiErrorWarningFill} />
         <div className='space-y-1'>
-          <div className='text-label-sm'>Datepicker con React 19 y npm</div>
+          <div className='text-label-sm'>¿Usas Vite?</div>
           <div>
-            AlignUI fija <code>react-day-picker@8.10.1</code>, que declara React
-            18 como peer. Con npm instala con{' '}
-            <code>
-              npm_config_legacy_peer_deps=true npx shadcn@latest add
-              @alignui/datepicker
-            </code>
-            . Con pnpm solo verás un aviso.
+            La base importa los tokens con <code>../lib/alignui.css</code>, así
+            que tu CSS de Tailwind debe estar en{' '}
+            <code>src/styles/globals.css</code> (en lugar de{' '}
+            <code>src/index.css</code>) y declararse así en{' '}
+            <code>components.json</code>. Carga Inter con{' '}
+            <code>@fontsource-variable/inter</code>. Tu asistente recibe estos
+            pasos al llamar a <code>alignui_get_setup_guide</code> con{' '}
+            <code>framework: &quot;vite&quot;</code>.
           </div>
         </div>
       </Alert.Root>

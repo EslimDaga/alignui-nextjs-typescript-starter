@@ -31,7 +31,7 @@ Configuración para Cursor, VS Code, Claude Desktop y otros clientes: [alignui-m
 | `alignui_get_component` | Código, partes, dependencias, ejemplos y comando de instalación |
 | `alignui_get_example` | Código de cualquiera de los 240 ejemplos oficiales |
 | `alignui_get_design_tokens` | Colores, tipografía, sombras y radios con su clase de Tailwind |
-| `alignui_get_setup_guide` | Pasos para configurar AlignUI en un proyecto |
+| `alignui_get_setup_guide` | Pasos para configurar AlignUI en un proyecto Next.js o Vite |
 
 ## Instalar componentes con el CLI
 
@@ -53,7 +53,7 @@ npx shadcn@latest add @alignui/select-demo             # ejemplos oficiales
 
 Guía completa (`components.json`, fuente, dark mode, providers): [alignui-mcp.vercel.app/docs/cli](https://alignui-mcp.vercel.app/docs/cli).
 
-> `datepicker` usa `react-day-picker@8.10.1`, la versión que fija AlignUI, que declara React 18 como peer. Con npm y React 19 instala con `npm_config_legacy_peer_deps=true`; con pnpm solo verás un aviso.
+> ¿Usas Vite? Pide a tu asistente que llame a `alignui_get_setup_guide` con `framework: "vite"`: cubre la ruta del CSS, la fuente Inter y el dark mode.
 
 ## Desarrollo local
 
@@ -91,7 +91,14 @@ pnpm registry:sync    # vuelve a descargar el código oficial de alignui.com/doc
 pnpm registry:build   # genera registry.json, public/r/*.json y el índice de ejemplos de la web
 ```
 
-`registry:build` deduce las dependencias de los imports, respeta las versiones que fija la documentación y publica copias con los únicos cambios que exige Tailwind v4: comas en grids arbitrarios (`grid-cols-[auto,minmax(0,1fr)]` → `grid-cols-[auto_minmax(0,1fr)]`) y la escala de radios (`rounded-bl-sm` → `rounded-bl-xs`). El build imprime cada cambio. El item `base` también instala `tw-animate-css`, el reemplazo para Tailwind v4 del plugin `tailwindcss-animate` del que dependen las animaciones de modal, drawer, popover, tooltip, dropdown, notification y select. `social-button` solo existe en el starter oficial y se toma de ahí.
+`registry:build` deduce las dependencias de los imports, respeta las versiones que fija la documentación (salvo `react-day-picker`, que sube a 8.10.2: misma API que la 8.10.1 de AlignUI y compatible con React 19) y publica copias con estos únicos cambios:
+
+- **Tailwind v4**: comas en grids arbitrarios (`grid-cols-[auto,minmax(0,1fr)]` → `grid-cols-[auto_minmax(0,1fr)]`) y la escala de radios (`rounded-bl-sm` → `rounded-bl-xs`).
+- **TypeScript de Vite** (`verbatimModuleSyntax` y `noUnusedLocals`): `import type` para los tipos y sin `import * as React` cuando no se usa.
+- **Dark mode opcional**: el CSS publicado no incluye el bloque `prefers-color-scheme`, así que el tema oscuro solo se activa con la clase `dark`.
+- **Fuente**: el `body` usa `var(--font-sans)` en lugar de `Inter` escrito a mano, para que funcione con `next/font` o `@fontsource`.
+
+El build imprime cada cambio. El item `base` también instala `tw-animate-css`, el reemplazo para Tailwind v4 del plugin `tailwindcss-animate` del que dependen las animaciones de modal, drawer, popover, tooltip, dropdown, notification y select. `social-button` solo existe en el starter oficial y se toma de ahí.
 
 ## Evaluación del MCP
 

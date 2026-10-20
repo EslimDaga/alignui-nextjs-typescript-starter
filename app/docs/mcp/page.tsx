@@ -43,7 +43,7 @@ const TOOLS = [
   {
     name: 'alignui_get_setup_guide',
     description:
-      'Pasos para configurar AlignUI en un proyecto (namespace, base, fuente, dark mode).',
+      'Pasos para configurar AlignUI en un proyecto Next.js o Vite (namespace, base, fuente, dark mode).',
   },
 ];
 

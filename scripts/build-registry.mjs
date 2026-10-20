@@ -5,15 +5,24 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const SOURCE_DIR = 'registry/default';
 const PUBLISHED_DIR = '.registry/default';
 const EXAMPLES_INDEX = 'components/site/examples.generated.tsx';
-const LIGHT_THEME_OVERRIDES = 'app/light-theme.generated.css';
 const BASE_ITEM = 'base';
 
 const FRAMEWORK_PACKAGES = new Set(['react', 'react-dom', 'next']);
 const UNPINNED_MAJOR_VERSIONS = { '@tanstack/react-table': '^8' };
+// Same v8 API as the 8.10.1 pinned by AlignUI, with React 19 in its peer range.
+const VERSION_OVERRIDES = { 'react-day-picker': '8.10.2' };
 const MISSING_PEER_DEPENDENCIES = {
   'react-payment-inputs': ['styled-components'],
 };
 const TYPE_PACKAGES = { 'react-payment-inputs': '@types/react-payment-inputs' };
+
+// Published tokens switch to dark only with the `dark` class, never by the OS.
+const SYSTEM_DARK_MODE_START =
+  '/* Dark Mode Support - Tailwind v4.1 CSS Variables */';
+const SYSTEM_DARK_MODE_END = '/* Class-based Dark Mode Support */';
+// The official body rule names Inter literally, which hides next/font and
+// @fontsource fonts: published tokens use the project's --font-sans instead.
+const BODY_FONT = 'font-family: Inter, Arial, Helvetica, sans-serif;';
 
 const TAILWIND_V4_REWRITES = [
   {
@@ -24,6 +33,26 @@ const TAILWIND_V4_REWRITES = [
   {
     pattern: /\brounded-([trblse]{1,2})-sm\b/g,
     replace: (_, side) => `rounded-${side}-xs`,
+  },
+];
+
+// Vite's react-ts template enables verbatimModuleSyntax and noUnusedLocals.
+const TYPE_ONLY_IMPORT = /^(\s*)([A-Z]\w*Props|DateRange)(\s+as\s+\w+)?(\s*)$/;
+
+const TYPESCRIPT_REWRITES = [
+  {
+    pattern: /^import (\w+, )?\{([^}]+)\} from/gm,
+    replace: (match, defaultImport = '', specifiers) =>
+      `import ${defaultImport}{${specifiers
+        .split(',')
+        .map((specifier) =>
+          specifier.replace(TYPE_ONLY_IMPORT, '$1type $2$3$4'),
+        )
+        .join(',')}} from`,
+  },
+  {
+    pattern: /^import \* as React from 'react';\n/m,
+    replace: (match, offset, source) => (/\bReact\./.test(source) ? match : ''),
   },
 ];
 
@@ -52,6 +81,7 @@ const versionPins = {
       .map(([, name, version]) => [name, version]),
   ),
   ...UNPINNED_MAJOR_VERSIONS,
+  ...VERSION_OVERRIDES,
 };
 
 const withVersion = (pkg) =>
@@ -178,13 +208,14 @@ function baseItem() {
     css: {
       '@import "tw-animate-css"': {},
       '@import "../lib/alignui.css"': {},
+      '@custom-variant dark (&:where(.dark, .dark *))': {},
       '@layer base': {
         'button:not(:disabled), [role="button"]:not(:disabled)': {
           cursor: 'pointer',
         },
       },
     },
-    docs: 'AlignUI tokens were added to lib/alignui.css and imported from app/globals.css. Dark mode follows the `dark` class on <html> (and prefers-color-scheme). AlignUI is designed for the Inter font: expose it as --font-sans.',
+    docs: 'AlignUI tokens were added to lib/alignui.css. It is imported with ../lib/alignui.css, so your Tailwind CSS file must sit one folder below the folder that holds lib/ (app/globals.css, src/app/globals.css, or src/styles/globals.css with Vite). Dark mode is opt-in: add the `dark` class to <html>. AlignUI is designed for the Inter font: expose it as --font-sans.',
   };
 }
 
@@ -213,7 +244,9 @@ function componentItems() {
     registryDependencies.delete(itemUrl(name));
 
     const page = docsPageFor(name, relative);
-    page?.install.forEach((spec) => dependencies.add(withVersion(spec)));
+    page?.install.forEach((spec) =>
+      dependencies.add(withVersion(spec.match(/^@?[^@]+/)[0])),
+    );
 
     const description =
       page?.description ??
@@ -280,13 +313,15 @@ function exampleItems(components) {
   });
 }
 
-function applyTailwindV4Rewrites(code, file) {
-  return TAILWIND_V4_REWRITES.reduce(
+function applyRewrites(code, file, rewrites, label) {
+  return rewrites.reduce(
     (current, { pattern, replace }) =>
       current.replace(pattern, (match, ...groups) => {
         const rewritten = replace(match, ...groups);
         if (rewritten !== match) {
-          console.log(`tailwind v4: ${file}: ${match} -> ${rewritten}`);
+          console.log(
+            `${label}: ${file}: ${match.trim()} -> ${rewritten.trim()}`,
+          );
         }
         return rewritten;
       }),
@@ -304,13 +339,33 @@ function publish(items) {
     const relative = path.relative(SOURCE_DIR, file.path);
     const source = read(file.path);
     file.path = path.join(PUBLISHED_DIR, relative);
-    write(
-      file.path,
-      /\.tsx?$/.test(relative)
-        ? applyTailwindV4Rewrites(source, relative)
-        : source,
-    );
+    write(file.path, publishedSource(source, relative));
   }
+}
+
+function publishedSource(source, file) {
+  if (/\.tsx?$/.test(file)) {
+    const code = applyRewrites(
+      source,
+      file,
+      TAILWIND_V4_REWRITES,
+      'tailwind v4',
+    );
+    return applyRewrites(code, file, TYPESCRIPT_REWRITES, 'typescript');
+  }
+  return file.endsWith('.css') ? publishedTokens(source) : source;
+}
+
+function publishedTokens(css) {
+  const start = css.indexOf(SYSTEM_DARK_MODE_START);
+  const end = css.indexOf(SYSTEM_DARK_MODE_END, start);
+  if (start === -1 || end === -1 || !css.includes(BODY_FONT)) {
+    throw new Error('alignui.css: unexpected official tokens layout');
+  }
+  return (css.slice(0, start) + css.slice(end)).replace(
+    BODY_FONT,
+    'font-family: var(--font-sans);',
+  );
 }
 
 function writeExamplesIndex(examples) {
@@ -335,38 +390,12 @@ ${entries.join('\n')}
   );
 }
 
-function blockAfter(css, marker) {
-  const start = css.indexOf(marker);
-  return css.slice(start, css.indexOf('\n}', start));
-}
-
-function writeLightThemeOverrides() {
-  const css = read(`${SOURCE_DIR}/styles/alignui.css`);
-  const theme = blockAfter(css, '@theme {');
-  const systemDark = blockAfter(css, '@media (prefers-color-scheme: dark)');
-
-  const declarations = [...systemDark.matchAll(/^\s*(--[a-z0-9-]+):/gm)]
-    .map(([, variable]) => {
-      const light = theme.match(
-        new RegExp(`^\\s*${variable}:\\s*([^;]+);`, 'm'),
-      )?.[1];
-      return light && `    ${variable}: ${light.replace(/\s+/g, ' ').trim()};`;
-    })
-    .filter(Boolean);
-
-  write(
-    LIGHT_THEME_OVERRIDES,
-    `@media (prefers-color-scheme: dark) {\n  :root.light {\n${declarations.join('\n')}\n  }\n}\n`,
-  );
-}
-
 const components = componentItems();
 const examples = exampleItems(components);
 const items = [baseItem(), ...hookItems(), ...components, ...examples];
 
 publish(items);
 writeExamplesIndex(examples);
-writeLightThemeOverrides();
 
 write(
   'registry.json',

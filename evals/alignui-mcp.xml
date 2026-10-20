@@ -1,7 +1,7 @@
 <evaluation>
   <qa_pair>
     <question>The AlignUI component used to pick a range of dates pins an exact version of its calendar library. What is that exact version number?</question>
-    <answer>8.10.1</answer>
+    <answer>8.10.2</answer>
   </qa_pair>
   <qa_pair>
     <question>How many official examples does the AlignUI component for inline alert messages have?</question>

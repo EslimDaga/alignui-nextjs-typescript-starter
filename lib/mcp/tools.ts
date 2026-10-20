@@ -3,7 +3,11 @@ import 'server-only';
 import type { McpServer } from '@modelcontextprotocol/server';
 import { z } from 'zod';
 
-import { PACKAGE_MANAGERS, setupGuide } from '@/lib/mcp/setup-guide';
+import {
+  FRAMEWORKS,
+  PACKAGE_MANAGERS,
+  setupGuide,
+} from '@/lib/mcp/setup-guide';
 import {
   addCommand,
   addCommandByUrl,
@@ -426,23 +430,30 @@ Example: category "colors" with query "bg-" lists bg-bg-white-0, bg-bg-weak-50 a
     'alignui_get_setup_guide',
     {
       title: 'Get the AlignUI setup guide',
-      description: `Step-by-step guide to set up AlignUI in a React + Tailwind CSS v4 project (Next.js App Router by default): registry namespace, base install, font, dark mode, providers and known caveats. Call it before installing the first AlignUI component in a project.
+      description: `Step-by-step guide to set up AlignUI in a React + Tailwind CSS v4 project, for Next.js (App Router) or Vite: registry namespace, base install, font, dark mode, providers and known caveats. Call it before installing the first AlignUI component in a project, with the framework the project uses.
 
 Args:
+  - framework: 'nextjs' | 'vite' (default 'nextjs')
   - package_manager: 'npm' | 'pnpm' | 'yarn' | 'bun' (default 'npm')`,
       inputSchema: z.object({
+        framework: z.enum(FRAMEWORKS).default('nextjs'),
         package_manager: z.enum(PACKAGE_MANAGERS).default('npm'),
       }),
       outputSchema: z.object({
+        framework: z.enum(FRAMEWORKS),
         package_manager: z.enum(PACKAGE_MANAGERS),
         guide: z.string(),
       }),
       annotations: READ_ONLY,
     },
-    async ({ package_manager }) =>
+    async ({ framework, package_manager }) =>
       respond(
         'markdown',
-        { package_manager, guide: setupGuide(package_manager) },
+        {
+          framework,
+          package_manager,
+          guide: setupGuide(package_manager, framework),
+        },
         (data) => data.guide,
       ),
   );
