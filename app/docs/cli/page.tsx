@@ -115,7 +115,7 @@ export default function CliPage() {
           <CodeBlock
             lang='css'
             title='app/globals.css'
-            code={`@import "tailwindcss";\n@import "../lib/alignui.css";\n\n@theme inline {\n  --font-sans: var(--font-inter);\n}`}
+            code={`@import "tailwindcss";\n@import "tw-animate-css";\n@import "../lib/alignui.css";\n\n@theme inline {\n  --font-sans: var(--font-inter);\n}`}
           />
           <CodeBlock lang='tsx' title='app/layout.tsx' code={LAYOUT} />
           <Prose>

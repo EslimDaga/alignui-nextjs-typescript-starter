@@ -86,7 +86,7 @@ pnpm registry:sync    # vuelve a descargar el código oficial de alignui.com/doc
 pnpm registry:build   # genera registry.json, public/r/*.json y el índice de ejemplos de la web
 ```
 
-`registry:build` deduce las dependencias de los imports, respeta las versiones que fija la documentación y publica copias con los únicos cambios que exige Tailwind v4: comas en grids arbitrarios (`grid-cols-[auto,minmax(0,1fr)]` → `grid-cols-[auto_minmax(0,1fr)]`) y la escala de radios (`rounded-bl-sm` → `rounded-bl-xs`). El build imprime cada cambio. `social-button` solo existe en el starter oficial y se toma de ahí.
+`registry:build` deduce las dependencias de los imports, respeta las versiones que fija la documentación y publica copias con los únicos cambios que exige Tailwind v4: comas en grids arbitrarios (`grid-cols-[auto,minmax(0,1fr)]` → `grid-cols-[auto_minmax(0,1fr)]`) y la escala de radios (`rounded-bl-sm` → `rounded-bl-xs`). El build imprime cada cambio. El item `base` también instala `tw-animate-css`, el reemplazo para Tailwind v4 del plugin `tailwindcss-animate` del que dependen las animaciones de modal, drawer, popover, tooltip, dropdown, notification y select. `social-button` solo existe en el starter oficial y se toma de ahí.
 
 ## Evaluación del MCP
 

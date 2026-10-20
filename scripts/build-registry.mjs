@@ -155,7 +155,7 @@ function docsPageFor(name, relative) {
 
 function baseItem() {
   const utils = listSources('utils');
-  const dependencies = new Set(['@remixicon/react']);
+  const dependencies = new Set(['@remixicon/react', 'tw-animate-css']);
   for (const util of utils) {
     analyze(util.file).dependencies.forEach((dep) => dependencies.add(dep));
   }
@@ -175,7 +175,10 @@ function baseItem() {
         target: '@lib/alignui.css',
       },
     ],
-    css: { '@import "../lib/alignui.css"': {} },
+    css: {
+      '@import "tw-animate-css"': {},
+      '@import "../lib/alignui.css"': {},
+    },
     docs: 'AlignUI tokens were added to lib/alignui.css and imported from app/globals.css. Dark mode follows the `dark` class on <html> (and prefers-color-scheme). AlignUI is designed for the Inter font: expose it as --font-sans.',
   };
 }

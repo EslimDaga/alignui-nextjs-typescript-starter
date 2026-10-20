@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
 @import '../lib/alignui.css';
 @import './light-theme.generated.css';
 
