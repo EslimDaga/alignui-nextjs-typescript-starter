@@ -1,8 +1,7 @@
-// AlignUI Checkbox v0.0.0
-
 import * as React from 'react';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-import { cn } from '@/utils/cn';
+
+import { cn } from '@/lib/cn';
 
 function IconCheck({ ...rest }: React.SVGProps<SVGSVGElement>) {
   return (
@@ -163,7 +162,7 @@ const Checkbox = React.forwardRef<
             'group-data-[state=indeterminate]/checkbox:invisible',
           )}
           style={{
-            ['--total-length']: TOTAL_LENGTH_CHECK,
+            ['--total-length' as any]: TOTAL_LENGTH_CHECK,
           }}
         />
         <IconIndeterminate
@@ -177,7 +176,7 @@ const Checkbox = React.forwardRef<
             'invisible group-data-[state=indeterminate]/checkbox:visible',
           )}
           style={{
-            ['--total-length']: TOTAL_LENGTH_INDETERMINATE,
+            ['--total-length' as any]: TOTAL_LENGTH_INDETERMINATE,
           }}
         />
       </CheckboxPrimitive.Indicator>

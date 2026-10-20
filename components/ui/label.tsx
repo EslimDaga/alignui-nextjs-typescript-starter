@@ -1,10 +1,9 @@
-// AlignUI Label v0.0.0
-
 'use client';
 
 import * as React from 'react';
 import * as LabelPrimitives from '@radix-ui/react-label';
-import { cn } from '@/utils/cn';
+
+import { cn } from '@/lib/cn';
 
 const LabelRoot = React.forwardRef<
   React.ComponentRef<typeof LabelPrimitives.Root>,

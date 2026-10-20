@@ -1,12 +1,11 @@
-// AlignUI VerticalStepper v0.0.0
-
 import * as React from 'react';
-import { tv, type VariantProps } from '@/utils/tv';
-import type { PolymorphicComponentProps } from '@/utils/polymorphic';
-import { recursiveCloneChildren } from '@/utils/recursive-clone-children';
-import { cn } from '@/utils/cn';
-import { RiArrowRightSLine } from '@remixicon/react';
 import { Slot } from '@radix-ui/react-slot';
+import { RiArrowRightSLine } from '@remixicon/react';
+
+import { cn } from '@/lib/cn';
+import type { PolymorphicComponentProps } from '@/lib/polymorphic';
+import { recursiveCloneChildren } from '@/lib/recursive-clone-children';
+import { tv, type VariantProps } from '@/lib/tv';
 
 const VERTICAL_STEPPER_ROOT_NAME = 'VerticalStepperRoot';
 const VERTICAL_STEPPER_ARROW_NAME = 'VerticalStepperArrow';
@@ -50,7 +49,7 @@ const verticalStepperItemVariants = tv({
   slots: {
     root: [
       // base
-      'grid w-full auto-cols-auto grid-flow-col grid-cols-[auto,minmax(0,1fr)] items-center gap-2.5 rounded-10 p-2 text-left text-paragraph-sm',
+      'grid w-full auto-cols-auto grid-flow-col grid-cols-[auto_minmax(0,1fr)] items-center gap-2.5 rounded-10 p-2 text-left text-paragraph-sm',
     ],
     indicator: [
       // base

@@ -1,11 +1,10 @@
-// AlignUI Pagination v0.0.0
-
 import * as React from 'react';
-import { tv, type VariantProps } from '@/utils/tv';
-import type { PolymorphicComponentProps } from '@/utils/polymorphic';
-import { recursiveCloneChildren } from '@/utils/recursive-clone-children';
-import { cn } from '@/utils/cn';
 import { Slot } from '@radix-ui/react-slot';
+
+import { cn } from '@/lib/cn';
+import type { PolymorphicComponentProps } from '@/lib/polymorphic';
+import { recursiveCloneChildren } from '@/lib/recursive-clone-children';
+import { tv, type VariantProps } from '@/lib/tv';
 
 const PAGINATION_ROOT_NAME = 'PaginationRoot';
 const PAGINATION_ITEM_NAME = 'PaginationItem';

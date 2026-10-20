@@ -1,15 +1,14 @@
-// AlignUI Select v0.0.0
-
 'use client';
 
 import * as React from 'react';
-import * as SelectPrimitives from '@radix-ui/react-select';
 import * as ScrollAreaPrimitives from '@radix-ui/react-scroll-area';
+import * as SelectPrimitives from '@radix-ui/react-select';
 import { Slottable } from '@radix-ui/react-slot';
 import { RiArrowDownSLine, RiCheckLine } from '@remixicon/react';
-import { tv, type VariantProps } from '@/utils/tv';
-import { cn } from '@/utils/cn';
-import type { PolymorphicComponentProps } from '@/utils/polymorphic';
+
+import { cn } from '@/lib/cn';
+import type { PolymorphicComponentProps } from '@/lib/polymorphic';
+import { tv, type VariantProps } from '@/lib/tv';
 
 export const selectVariants = tv({
   slots: {

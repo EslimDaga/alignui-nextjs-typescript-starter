@@ -1,12 +1,11 @@
-// AlignUI Accordion v0.0.0
-
 'use client';
 
 import * as React from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
-import { cn } from '@/utils/cn';
-import type { PolymorphicComponentProps } from '@/utils/polymorphic';
 import { RiAddLine, RiSubtractLine } from '@remixicon/react';
+
+import { cn } from '@/lib/cn';
+import type { PolymorphicComponentProps } from '@/lib/polymorphic';
 
 const ACCORDION_ITEM_NAME = 'AccordionItem';
 const ACCORDION_ICON_NAME = 'AccordionIcon';
@@ -53,7 +52,7 @@ const AccordionTrigger = React.forwardRef<
       className={cn(
         // base
         'w-[calc(100%+theme(space.7))] text-left text-label-sm text-text-strong-950',
-        'grid auto-cols-auto grid-flow-col grid-cols-[auto,minmax(0,1fr)] items-center gap-2.5',
+        'grid auto-cols-auto grid-flow-col grid-cols-[auto_minmax(0,1fr)] items-center gap-2.5',
         '-m-3.5 p-3.5 outline-none',
         // focus
         'focus:outline-none',

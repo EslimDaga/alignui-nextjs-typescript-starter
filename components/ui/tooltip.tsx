@@ -1,10 +1,9 @@
-// AlignUI Tooltip v0.0.0
-
 'use client';
 
 import * as React from 'react';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
-import { tv, type VariantProps } from '@/utils/tv';
+
+import { tv, type VariantProps } from '@/lib/tv';
 
 const TooltipProvider = TooltipPrimitive.Provider;
 const TooltipRoot = TooltipPrimitive.Root;
@@ -23,7 +22,7 @@ export const tooltipVariants = tv({
     size: {
       xsmall: {
         content: 'rounded px-1.5 py-0.5 text-paragraph-xs',
-        arrow: 'rounded-bl-sm',
+        arrow: 'rounded-bl-xs',
       },
       small: {
         content: 'rounded-md px-2.5 py-1 text-paragraph-sm',
@@ -31,7 +30,7 @@ export const tooltipVariants = tv({
       },
       medium: {
         content: 'rounded-xl p-3 text-label-sm',
-        arrow: 'rounded-bl-sm',
+        arrow: 'rounded-bl-xs',
       },
     },
     variant: {

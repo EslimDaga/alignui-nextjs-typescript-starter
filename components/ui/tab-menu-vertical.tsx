@@ -2,8 +2,9 @@
 
 import * as React from 'react';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
-import { cn } from '@/utils/cn';
-import { PolymorphicComponentProps } from '@/utils/polymorphic';
+
+import { cn } from '@/lib/cn';
+import { PolymorphicComponentProps } from '@/lib/polymorphic';
 
 const TabMenuVerticalContent = TabsPrimitive.Content;
 TabMenuVerticalContent.displayName = 'TabMenuVerticalContent';
@@ -47,7 +48,7 @@ const TabMenuVerticalTrigger = React.forwardRef<
       className={cn(
         // base
         'group/tab-item w-full rounded-lg p-2 text-left text-label-sm text-text-sub-600 outline-none',
-        'grid auto-cols-auto grid-flow-col grid-cols-[auto,minmax(0,1fr)] items-center gap-1.5',
+        'grid auto-cols-auto grid-flow-col grid-cols-[auto_minmax(0,1fr)] items-center gap-1.5',
         'transition duration-200 ease-out',
         // hover
         'hover:bg-bg-weak-50',

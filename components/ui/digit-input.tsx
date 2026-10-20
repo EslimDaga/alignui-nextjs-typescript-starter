@@ -1,9 +1,7 @@
-// AlignUI DigitInput v0.0.0
-
 import * as React from 'react';
-import { cn } from '@/utils/cn';
-
 import OtpInput, { OTPInputProps } from 'react-otp-input';
+
+import { cn } from '@/lib/cn';
 
 type OtpOptions = Omit<OTPInputProps, 'renderInput'>;
 
@@ -57,7 +55,7 @@ const DigitInputSlot = React.forwardRef<
         // disabled
         'disabled:bg-bg-weak-50 disabled:text-text-disabled-300 disabled:shadow-none disabled:ring-transparent',
         {
-          'ring-error-base hover:ring-error-base focus:shadow-button-error-focus focus:ring-error-base':
+          'ring-error-base hover:ring-error-base focus:ring-error-base focus:shadow-button-error-focus':
             hasError,
         },
         className,

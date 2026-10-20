@@ -1,11 +1,10 @@
-// AlignUI Tag v0.0.0
-
 import * as React from 'react';
-import { tv, type VariantProps } from '@/utils/tv';
-import { recursiveCloneChildren } from '@/utils/recursive-clone-children';
 import { Slot } from '@radix-ui/react-slot';
 import { RiCloseFill } from '@remixicon/react';
-import { PolymorphicComponentProps } from '@/utils/polymorphic';
+
+import { PolymorphicComponentProps } from '@/lib/polymorphic';
+import { recursiveCloneChildren } from '@/lib/recursive-clone-children';
+import { tv, type VariantProps } from '@/lib/tv';
 
 const TAG_ROOT_NAME = 'TagRoot';
 const TAG_ICON_NAME = 'TagIcon';

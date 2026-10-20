@@ -1,5 +1,3 @@
-// AlignUI Datepicker v0.0.0
-
 'use client';
 
 import * as React from 'react';
@@ -7,7 +5,7 @@ import { RiArrowLeftSLine, RiArrowRightSLine } from '@remixicon/react';
 import { DayPicker } from 'react-day-picker';
 
 import { compactButtonVariants } from '@/components/ui/compact-button';
-import { cn } from '@/utils/cn';
+import { cn } from '@/lib/cn';
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 

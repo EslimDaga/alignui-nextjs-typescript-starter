@@ -1,0 +1,20 @@
+'use client';
+
+import * as React from 'react';
+
+import * as DigitInput from '@/components/ui/digit-input';
+
+export function DigitInputHasError() {
+  const [digitInputValue, setDigitInputValue] = React.useState('');
+
+  return (
+    <div className='w-full max-w-96'>
+      <DigitInput.Root
+        hasError
+        numInputs={4}
+        onChange={(value) => setDigitInputValue(value)}
+        value={digitInputValue}
+      />
+    </div>
+  );
+}

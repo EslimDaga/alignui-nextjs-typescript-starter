@@ -1,8 +1,7 @@
-// AlignUI ProgressCircle v0.0.0
-
 import * as React from 'react';
-import { cn } from '@/utils/cn';
-import { tv, type VariantProps } from '@/utils/tv';
+
+import { cn } from '@/lib/cn';
+import { tv, type VariantProps } from '@/lib/tv';
 
 export const progressCircleVariants = tv({
   slots: {
@@ -15,6 +14,7 @@ export const progressCircleVariants = tv({
       '64': { text: 'text-label-sm' },
       '56': { text: 'text-label-xs' },
       '48': { text: 'text-label-xs' },
+      '44': { text: 'text-label-xs' },
     },
   },
   defaultVariants: {
@@ -51,6 +51,11 @@ function getSizes({
         strokeWidth: 6.7,
         radius: 24,
       };
+    case '44':
+      return {
+        strokeWidth: 5.5,
+        radius: 22,
+      };
     default:
       return {
         strokeWidth: 6.4,
@@ -64,6 +69,7 @@ type ProgressCircleRootProps = Omit<React.SVGProps<SVGSVGElement>, 'value'> &
     value?: number;
     max?: number;
     children?: React.ReactNode;
+    color?: string;
   };
 
 const ProgressCircleRoot = React.forwardRef<
@@ -77,6 +83,7 @@ const ProgressCircleRoot = React.forwardRef<
       size,
       className,
       children,
+      color = 'stroke-primary-base',
       ...rest
     }: ProgressCircleRootProps,
     forwardedRef,
@@ -120,7 +127,7 @@ const ProgressCircleRoot = React.forwardRef<
                 strokeDasharray={`${circumference} ${circumference}`}
                 strokeDashoffset={offset}
                 fill='none'
-                className='stroke-primary-base transition-all duration-300 ease-out'
+                className={`${color} transition-all duration-300 ease-out`}
               />
             )}
           </svg>

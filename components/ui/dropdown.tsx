@@ -1,12 +1,11 @@
-// AlignUI Dropdown v0.0.0
-
 'use client';
 
 import * as React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
-import { cn } from '@/utils/cn';
 import { RiArrowRightSLine } from '@remixicon/react';
-import { PolymorphicComponentProps } from '@/utils/polymorphic';
+
+import { cn } from '@/lib/cn';
+import { PolymorphicComponentProps } from '@/lib/polymorphic';
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;

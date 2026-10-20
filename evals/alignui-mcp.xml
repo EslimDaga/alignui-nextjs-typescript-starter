@@ -1,0 +1,42 @@
+<evaluation>
+  <qa_pair>
+    <question>The AlignUI component used to pick a range of dates pins an exact version of its calendar library. What is that exact version number?</question>
+    <answer>8.10.1</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>How many official examples does the AlignUI component for inline alert messages have?</question>
+    <answer>8</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>What line height does the AlignUI typography token used by the text-label-md utility define?</question>
+    <answer>1.5rem</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>The official AlignUI example named "rating-bar-heart" belongs to which AlignUI component? Give its registry name.</question>
+    <answer>svg-rating-icons</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>Apart from the shared base item, which other AlignUI component is installed automatically together with the Modal component? Give its registry name.</question>
+    <answer>compact-button</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>Which compound part of the AlignUI Tooltip has to wrap tooltips higher up in the React tree? Give the part name.</question>
+    <answer>Provider</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>Which npm package does the AlignUI toast component depend on?</question>
+    <answer>sonner</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>The official AlignUI data table example depends on a headless table library. Which semver range of that library does the registry pin?</question>
+    <answer>^8</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>What is the value of the largest border radius token defined by AlignUI?</question>
+    <answer>1.25rem</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>The AlignUI segmented control depends on a custom AlignUI hook that is installed with it. What is the registry name of that hook?</question>
+    <answer>use-tab-observer</answer>
+  </qa_pair>
+</evaluation>

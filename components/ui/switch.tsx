@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as SwitchPrimitives from '@radix-ui/react-switch';
-import { cn } from '@/utils/cn';
+
+import { cn } from '@/lib/cn';
 
 const Switch = React.forwardRef<
   React.ComponentRef<typeof SwitchPrimitives.Root>,
@@ -63,7 +64,7 @@ const Switch = React.forwardRef<
             disabled && ['size-2.5 rounded-full bg-bg-soft-200 shadow-none'],
           )}
           style={{
-            ['--mask']:
+            ['--mask' as any]:
               'radial-gradient(circle farthest-side at 50% 50%, #0000 1.95px, #000 2.05px 100%) 50% 50%/100% 100% no-repeat',
           }}
         />

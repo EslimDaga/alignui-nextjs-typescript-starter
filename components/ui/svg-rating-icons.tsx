@@ -1,4 +1,3 @@
-/** ======== STAR ======== */
 export function SVGStarFill(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg

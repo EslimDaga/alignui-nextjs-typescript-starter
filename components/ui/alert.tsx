@@ -1,10 +1,13 @@
-// AlignUI Alert v0.0.0
-
 import * as React from 'react';
-import { tv, type VariantProps, type ClassValue } from '@/utils/tv';
-import { recursiveCloneChildren } from '@/utils/recursive-clone-children';
-import type { PolymorphicComponentProps } from '@/utils/polymorphic';
 import { RiCloseLine } from '@remixicon/react';
+
+import type { PolymorphicComponentProps } from '@/lib/polymorphic';
+import { recursiveCloneChildren } from '@/lib/recursive-clone-children';
+import {
+  tv,
+  type ClassValue,
+  type VariantProps,
+} from '@/lib/tv';
 
 const ALERT_ROOT_NAME = 'AlertRoot';
 const ALERT_ICON_NAME = 'AlertIcon';
@@ -14,7 +17,7 @@ export const alertVariants = tv({
   slots: {
     root: 'w-full',
     wrapper: [
-      'grid w-full auto-cols-auto grid-flow-col grid-cols-1 items-start has-[>svg:first-child]:grid-cols-[auto,minmax(0,1fr)]',
+      'grid w-full auto-cols-auto grid-flow-col grid-cols-1 items-start has-[>svg:first-child]:grid-cols-[auto_minmax(0,1fr)]',
       'transition duration-200 ease-out group-data-[expanded=false]/toast:group-data-[front=false]/toast:opacity-0',
     ],
     icon: 'shrink-0',

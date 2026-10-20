@@ -1,5 +1,3 @@
-// AlignUI Avatar Empty Icons v0.0.0
-
 'use client';
 
 import * as React from 'react';

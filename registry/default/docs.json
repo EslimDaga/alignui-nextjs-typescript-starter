@@ -1,0 +1,465 @@
+{
+  "source": "https://www.alignui.com/docs/v1.2",
+  "repoOnly": [
+    "components/ui/social-button.tsx"
+  ],
+  "pages": [
+    {
+      "slug": "ui/accordion",
+      "title": "Accordion",
+      "description": "Allows you to display content in a collapsible manner, making it easy for users to access information while conserving screen space.",
+      "file": "ui/accordion.tsx",
+      "install": [
+        "@radix-ui/react-accordion"
+      ]
+    },
+    {
+      "slug": "ui/alert",
+      "title": "Alert",
+      "description": "Alerts often appear between inputs or around the important UI elements to convey critical information, such as an incorrect password during login attempts.",
+      "file": "ui/alert.tsx",
+      "install": []
+    },
+    {
+      "slug": "ui/avatar",
+      "title": "Avatar",
+      "description": "Avatar is an image that represents a user or organization.",
+      "file": "ui/avatar.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/avatar-group",
+      "title": "Avatar Group",
+      "description": "Avatar group displays two or more avatars in an inline stack.",
+      "file": "ui/avatar-group.tsx",
+      "install": []
+    },
+    {
+      "slug": "ui/avatar-group-compact",
+      "title": "Avatar Group Compact",
+      "description": "More compact version of AvatarGroup.",
+      "file": "ui/avatar-group-compact.tsx",
+      "install": []
+    },
+    {
+      "slug": "ui/badge",
+      "title": "Badge",
+      "description": "A badge is a piece of text that is visually stylized to differentiate it as contextual metadata. It can be used to add a status, category, or other metadata to a design.",
+      "file": "ui/badge.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/banner",
+      "title": "Banner",
+      "description": "Delivering crucial alerts and information prominently at the top of the screen.",
+      "file": "ui/banner.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/breadcrumb",
+      "title": "Breadcrumb",
+      "description": "Guiding users by displaying their path within an app or website.",
+      "file": "ui/breadcrumb.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/button",
+      "title": "Button",
+      "description": "Renders a button or an element styled to resemble a button.",
+      "file": "ui/button.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/button-group",
+      "title": "Button Group",
+      "description": "Button groups are a set of buttons sticked together in a horizontal line.",
+      "file": "ui/button-group.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/checkbox",
+      "title": "Checkbox",
+      "description": "Checkbox is a form control for single and multiple selections.",
+      "file": "ui/checkbox.tsx",
+      "install": [
+        "@radix-ui/react-checkbox"
+      ]
+    },
+    {
+      "slug": "ui/color-picker",
+      "title": "Color Picker",
+      "description": "Choose or create specific colors with this versatile tool for various design needs.",
+      "file": "ui/color-picker.tsx",
+      "install": [
+        "react-aria-components"
+      ]
+    },
+    {
+      "slug": "ui/command-menu",
+      "title": "Command Menu",
+      "description": "Command Menu empowers users to swiftly execute searches on any page, thereby streamlining their workflow.",
+      "file": "ui/command-menu.tsx",
+      "install": [
+        "cmdk",
+        "@radix-ui/react-dialog"
+      ]
+    },
+    {
+      "slug": "ui/compact-button",
+      "title": "Compact Button",
+      "description": "Buttons that are ideal for when space is limited.",
+      "file": "ui/compact-button.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/data-table",
+      "title": "Data Table",
+      "description": "Data table is a 2-dimensional data structure where each row is an item, and each column is a data point about the item.",
+      "file": "ui/table.tsx",
+      "install": [
+        "@tanstack/react-table"
+      ]
+    },
+    {
+      "slug": "ui/datepicker",
+      "title": "Datepicker",
+      "description": "Enabling users to choose either a single date or a range of dates.",
+      "file": "ui/datepicker.tsx",
+      "install": [
+        "react-day-picker@8.10.1",
+        "date-fns@^3"
+      ]
+    },
+    {
+      "slug": "ui/digit-input",
+      "title": "Digit Input",
+      "description": "A component for entering one-time passwords (OTPs) in a digit-by-digit manner. Ideal for secure authentication flows where users need to input short numeric codes.",
+      "file": "ui/digit-input.tsx",
+      "install": [
+        "react-otp-input"
+      ]
+    },
+    {
+      "slug": "ui/divider",
+      "title": "Divider",
+      "description": "A versatile divider component used to create visual separation between content.",
+      "file": "ui/divider.tsx",
+      "install": []
+    },
+    {
+      "slug": "ui/dot-stepper",
+      "title": "Dot Stepper",
+      "description": "Very minimal stepper. Often used as carousel dots.",
+      "file": "ui/dot-stepper.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/drawer",
+      "title": "Drawer",
+      "description": "A panel which slides out from the edge of the screen.",
+      "file": "ui/drawer.tsx",
+      "install": [
+        "@radix-ui/react-dialog"
+      ]
+    },
+    {
+      "slug": "ui/dropdown",
+      "title": "Dropdown",
+      "description": "Displays a menu to the user—such as a set of actions or functions—triggered by a button.",
+      "file": "ui/dropdown.tsx",
+      "install": [
+        "@radix-ui/react-dropdown-menu"
+      ]
+    },
+    {
+      "slug": "ui/fancy-button",
+      "title": "Fancy Button",
+      "description": "Regular buttons with a fancy appearance.",
+      "file": "ui/fancy-button.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/file-upload",
+      "title": "File Upload",
+      "description": "A consistent way to drag and drop, as well as browse your computer to upload a media file.",
+      "file": "ui/file-upload.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/hint",
+      "title": "Hint",
+      "description": "Hint components provide contextual information or guidance beneath inputs, selects, and textareas, enhancing usability and user experience.",
+      "file": "ui/hint.tsx",
+      "install": []
+    },
+    {
+      "slug": "ui/horizontal-stepper",
+      "title": "Horizontal Stepper",
+      "description": "A versatile horizontal step indicator providing a clear visual guide through sequential processes.",
+      "file": "ui/horizontal-stepper.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/input",
+      "title": "Input",
+      "description": "Text input is used to set a value that is a single line of text.",
+      "file": "ui/input.tsx",
+      "install": []
+    },
+    {
+      "slug": "ui/kbd",
+      "title": "Kbd",
+      "description": "A very simple component for displaying keyboard key styling.",
+      "file": "ui/kbd.tsx",
+      "install": []
+    },
+    {
+      "slug": "ui/label",
+      "title": "Label",
+      "description": "Labels provide context for user inputs.",
+      "file": "ui/label.tsx",
+      "install": [
+        "@radix-ui/react-label"
+      ]
+    },
+    {
+      "slug": "ui/link-button",
+      "title": "Link Button",
+      "description": "Buttons that seamlessly integrate with text content.",
+      "file": "ui/link-button.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/modal",
+      "title": "Modal",
+      "description": "Modal is a floating surface used to display transient content such as confirmation actions, selection options, and more.",
+      "file": "ui/modal.tsx",
+      "install": [
+        "@radix-ui/react-dialog"
+      ]
+    },
+    {
+      "slug": "ui/notification",
+      "title": "Notification",
+      "description": "Notifications typically appear temporarily in corners, conveying information like payment and update notifications.",
+      "file": "ui/notification.tsx",
+      "install": [
+        "@radix-ui/react-toast"
+      ]
+    },
+    {
+      "slug": "ui/pagination",
+      "title": "Pagination",
+      "description": "Pagination is a horizontal set of links to navigate paginated content.",
+      "file": "ui/pagination.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/popover",
+      "title": "Popover",
+      "description": "Popover is used to bring attention to specific user interface elements.",
+      "file": "ui/popover.tsx",
+      "install": [
+        "@radix-ui/react-popover",
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/progress-bar",
+      "title": "Progress Bar",
+      "description": "A progress bar is a simple chart that can be used to show how complete something is.",
+      "file": "ui/progress-bar.tsx",
+      "install": []
+    },
+    {
+      "slug": "ui/progress-circle",
+      "title": "Progress Circle",
+      "description": "A progress circle is a simple chart that can be used to show how complete something is.",
+      "file": "ui/progress-circle.tsx",
+      "install": []
+    },
+    {
+      "slug": "ui/radio",
+      "title": "Radio",
+      "description": "Radio button is a form control for making a single selection from a short list of options.",
+      "file": "ui/radio.tsx",
+      "install": [
+        "@radix-ui/react-radio-group"
+      ]
+    },
+    {
+      "slug": "ui/rating",
+      "title": "Rating",
+      "description": "The Rating Component offers a dynamic and visually engaging way for users to express their opinions.",
+      "file": "ui/svg-rating-icons.tsx",
+      "install": []
+    },
+    {
+      "slug": "ui/segmented-control",
+      "title": "Segmented Control",
+      "description": "Segmented control is used to pick one choice from a linear set of closely related choices, and immediately apply that selection.",
+      "file": "hooks/use-tab-observer.ts",
+      "install": [
+        "@radix-ui/react-tabs"
+      ]
+    },
+    {
+      "slug": "ui/select",
+      "title": "Select",
+      "description": "Select is an input for selecting a single option from a menu.",
+      "file": "ui/select.tsx",
+      "install": [
+        "@radix-ui/react-select",
+        "@radix-ui/react-scroll-area",
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/slider",
+      "title": "Slider",
+      "description": "Allowing precise selection of a single value within a specified range.",
+      "file": "ui/slider.tsx",
+      "install": [
+        "@radix-ui/react-slider"
+      ]
+    },
+    {
+      "slug": "ui/status-badge",
+      "title": "Status Badge",
+      "description": "Allows you to visually highlight statuses or conditions within a confined screen space.",
+      "file": "ui/status-badge.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/switch",
+      "title": "Switch",
+      "description": "Switch is used to immediately toggle a setting on or off.",
+      "file": "ui/switch.tsx",
+      "install": [
+        "@radix-ui/react-switch"
+      ]
+    },
+    {
+      "slug": "ui/tab-menu-horizontal",
+      "title": "Tab Menu Horizontal",
+      "description": "Provides a linear layout for making it easy to switch between sections or categories.",
+      "file": "hooks/use-tab-observer.ts",
+      "install": [
+        "@radix-ui/react-tabs"
+      ]
+    },
+    {
+      "slug": "ui/tab-menu-vertical",
+      "title": "Tab Menu Vertical",
+      "description": "Provides a stacked layout for making it easy to switch between sections or categories.",
+      "file": "ui/tab-menu-vertical.tsx",
+      "install": [
+        "@radix-ui/react-tabs"
+      ]
+    },
+    {
+      "slug": "ui/tag",
+      "title": "Tag",
+      "description": "Efficient tool for categorizing and labeling content within your application.",
+      "file": "ui/tag.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "ui/textarea",
+      "title": "Textarea",
+      "description": "Renders a textarea with custom resize handle and character length display.",
+      "file": "ui/textarea.tsx",
+      "install": []
+    },
+    {
+      "slug": "ui/toast",
+      "title": "Toast",
+      "description": "Multiple notifications may stack up as Toasts, delivering brief feedback in a compact size.",
+      "file": "ui/toast.tsx",
+      "install": [
+        "sonner"
+      ]
+    },
+    {
+      "slug": "ui/tooltip",
+      "title": "Tooltip",
+      "description": "Tooltips add additional context to interactive UI elements and appear on mouse hover or keyboard focus.",
+      "file": "ui/tooltip.tsx",
+      "install": [
+        "@radix-ui/react-tooltip"
+      ]
+    },
+    {
+      "slug": "ui/vertical-stepper",
+      "title": "Vertical Stepper",
+      "description": "An adaptable vertical step indicator offering an intuitive progression representation for diverse layouts.",
+      "file": "ui/vertical-stepper.tsx",
+      "install": [
+        "@radix-ui/react-slot"
+      ]
+    },
+    {
+      "slug": "utils/cn",
+      "title": "cn",
+      "description": "Utilities for combining classNames with Tailwind v4's improved class conflict resolution.",
+      "file": "utils/cn.ts",
+      "install": [
+        "clsx",
+        "tailwind-merge"
+      ]
+    },
+    {
+      "slug": "utils/polymorphic",
+      "title": "Polymorphic",
+      "description": "Utility types for creating strongly typed polymorphic components.",
+      "file": "utils/polymorphic.ts",
+      "install": []
+    },
+    {
+      "slug": "utils/recursive-clone-children",
+      "title": "recursiveCloneChildren",
+      "description": "Recursively clones children, adding additional props to components with matched display names.",
+      "file": "utils/recursive-clone-children.tsx",
+      "install": []
+    },
+    {
+      "slug": "utils/tv",
+      "title": "tv",
+      "description": "An instance of tailwind-variants with Tailwind v4 compatible class merging.",
+      "file": "utils/tv.ts",
+      "install": [
+        "tailwind-variants"
+      ]
+    }
+  ]
+}

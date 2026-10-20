@@ -1,5 +1,3 @@
-// AlignUI Drawer v0.0.0
-
 'use client';
 
 import * as React from 'react';
@@ -7,7 +5,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { RiCloseLine } from '@remixicon/react';
 
 import * as CompactButton from '@/components/ui/compact-button';
-import { cn } from '@/utils/cn';
+import { cn } from '@/lib/cn';
 
 const DrawerRoot = DialogPrimitive.Root;
 DrawerRoot.displayName = 'Drawer';

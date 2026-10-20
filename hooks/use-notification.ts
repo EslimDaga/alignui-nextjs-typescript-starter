@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+
 import type { NotificationProps } from '@/components/ui/notification';
 
 const NOTIFICATION_LIMIT = 1;

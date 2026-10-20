@@ -1,9 +1,8 @@
-// AlignUI Breadcrumb v0.0.0
-
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
-import { cn } from '@/utils/cn';
-import { PolymorphicComponentProps } from '@/utils/polymorphic';
+
+import { cn } from '@/lib/cn';
+import { PolymorphicComponentProps } from '@/lib/polymorphic';
 
 const BREADCRUMB_ROOT_NAME = 'BreadcrumbRoot';
 const BREADCRUMB_ITEM_NAME = 'BreadcrumbItem';

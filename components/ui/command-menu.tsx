@@ -1,14 +1,13 @@
-// AlignUI CommandMenu v0.0.0
-
 'use client';
 
 import * as React from 'react';
-import { Command } from 'cmdk';
-import { cn } from '@/utils/cn';
-import { tv, type VariantProps } from '@/utils/tv';
-import { PolymorphicComponentProps } from '@/utils/polymorphic';
-import * as Modal from '@/components/ui/modal';
 import { type DialogProps } from '@radix-ui/react-dialog';
+import { Command } from 'cmdk';
+
+import * as Modal from '@/components/ui/modal';
+import { cn } from '@/lib/cn';
+import { PolymorphicComponentProps } from '@/lib/polymorphic';
+import { tv, type VariantProps } from '@/lib/tv';
 
 const CommandDialogTitle = Modal.Title;
 const CommandDialogDescription = Modal.Description;
@@ -28,7 +27,7 @@ const CommandDialog = ({
         overlayClassName={cn('justify-start pt-20', overlayClassName)}
         showClose={false}
         className={cn(
-          'flex max-h-full max-w-[600px] flex-col overflow-hidden rounded-2xl',
+          'flex max-h-full max-w-[720px] flex-col overflow-hidden rounded-2xl',
           className,
         )}
       >

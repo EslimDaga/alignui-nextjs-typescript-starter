@@ -1,15 +1,13 @@
-// AlignUI Avatar v0.0.0
-
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
 
-import { cn } from '@/utils/cn';
-import { recursiveCloneChildren } from '@/utils/recursive-clone-children';
-import { tv, type VariantProps } from '@/utils/tv';
 import {
   IconEmptyCompany,
   IconEmptyUser,
 } from '@/components/ui/avatar-empty-icons';
+import { cn } from '@/lib/cn';
+import { recursiveCloneChildren } from '@/lib/recursive-clone-children';
+import { tv, type VariantProps } from '@/lib/tv';
 
 export const AVATAR_ROOT_NAME = 'AvatarRoot';
 const AVATAR_IMAGE_NAME = 'AvatarImage';

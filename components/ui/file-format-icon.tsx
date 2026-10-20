@@ -1,7 +1,6 @@
-// AlignUI FileFormatIcon v0.0.0
-
 import * as React from 'react';
-import { tv, type VariantProps } from '@/utils/tv';
+
+import { tv, type VariantProps } from '@/lib/tv';
 
 export const fileFormatIconVariants = tv({
   slots: {
@@ -85,7 +84,7 @@ function FileFormatIcon({
         strokeWidth='1.5'
       />
       <foreignObject x='0' y='0' width='40' height='40'>
-        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+        {/* eslint-disable-next-line */}
         {/* @ts-ignore */}
         <div xmlns='http://www.w3.org/1999/xhtml' className={formatBox()}>
           {format}

@@ -1,10 +1,8 @@
-// AlignUI Popover v0.0.0
-
 import * as React from 'react';
 import * as PopoverPrimitive from '@radix-ui/react-popover';
 import { Slottable } from '@radix-ui/react-slot';
 
-import { cn } from '@/utils/cn';
+import { cn } from '@/lib/cn';
 
 const PopoverRoot = PopoverPrimitive.Root;
 const PopoverTrigger = PopoverPrimitive.Trigger;
