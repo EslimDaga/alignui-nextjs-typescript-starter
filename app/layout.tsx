@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
+import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ThemeProvider } from 'next-themes';
 
@@ -64,6 +65,7 @@ export default function RootLayout({
         </ThemeProvider>
         <NotificationProvider />
         <Toaster />
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
