@@ -178,6 +178,11 @@ function baseItem() {
     css: {
       '@import "tw-animate-css"': {},
       '@import "../lib/alignui.css"': {},
+      '@layer base': {
+        'button:not(:disabled), [role="button"]:not(:disabled)': {
+          cursor: 'pointer',
+        },
+      },
     },
     docs: 'AlignUI tokens were added to lib/alignui.css and imported from app/globals.css. Dark mode follows the `dark` class on <html> (and prefers-color-scheme). AlignUI is designed for the Inter font: expose it as --font-sans.',
   };
