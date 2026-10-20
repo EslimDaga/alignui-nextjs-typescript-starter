@@ -6,7 +6,7 @@
   <p align="center">Los componentes oficiales de AlignUI, al alcance de tu IA</p>
 </p>
 
-Fork de [alignui-nextjs-typescript-starter](https://github.com/alignui/alignui-nextjs-typescript-starter) que publica los **54 componentes y 240 ejemplos oficiales de AlignUI** de tres formas, desde un solo deploy:
+Fork de [alignui-nextjs-typescript-starter](https://github.com/alignui/alignui-nextjs-typescript-starter) que publica los **54 componentes y 240 ejemplos oficiales de AlignUI** de tres formas, desde un solo deploy en **https://alignui-mcp.vercel.app**:
 
 | Ruta | Qué es |
 | --- | --- |
@@ -19,10 +19,10 @@ La propia web se construyó instalando los componentes desde este registry.
 ## Usar el MCP
 
 ```bash
-claude mcp add --transport http alignui https://TU-DOMINIO/mcp
+claude mcp add --transport http alignui https://alignui-mcp.vercel.app/mcp
 ```
 
-Configuración para Cursor, VS Code, Claude Desktop y otros clientes: página **/docs/mcp**.
+Configuración para Cursor, VS Code, Claude Desktop y otros clientes: [alignui-mcp.vercel.app/docs/mcp](https://alignui-mcp.vercel.app/docs/mcp).
 
 | Herramienta | Para qué |
 | --- | --- |
@@ -35,23 +35,23 @@ Configuración para Cursor, VS Code, Claude Desktop y otros clientes: página **
 
 ## Instalar componentes con el CLI
 
-En el `components.json` del proyecto:
+Agrega el namespace al `components.json` del proyecto (si no tienes uno, copia el completo de la guía; recuerda que shadcn exige el campo `"style"`):
 
 ```json
 {
   "registries": {
-    "@alignui": "https://TU-DOMINIO/r/{name}.json"
+    "@alignui": "https://alignui-mcp.vercel.app/r/{name}.json"
   }
 }
 ```
 
 ```bash
-npx shadcn@latest add @alignui/base                    # tokens + utils
+npx shadcn@latest add @alignui/base                    # tokens, utils, animaciones y cursor
 npx shadcn@latest add @alignui/button @alignui/modal   # componentes
 npx shadcn@latest add @alignui/select-demo             # ejemplos oficiales
 ```
 
-Guía completa (fuente, dark mode, providers): página **/docs/cli**.
+Guía completa (`components.json`, fuente, dark mode, providers): [alignui-mcp.vercel.app/docs/cli](https://alignui-mcp.vercel.app/docs/cli).
 
 > `datepicker` usa `react-day-picker@8.10.1`, la versión que fija AlignUI, que declara React 18 como peer. Con npm y React 19 instala con `npm_config_legacy_peer_deps=true`; con pnpm solo verás un aviso.
 
@@ -63,14 +63,19 @@ pnpm dev   # genera el registry (predev) y levanta http://localhost:3000
 ```
 
 - MCP local: `http://localhost:3000/mcp`. Para inspeccionarlo: `npx @modelcontextprotocol/inspector`.
+- Si el puerto 3000 está ocupado: `REGISTRY_URL=http://localhost:3100 pnpm dev -p 3100`.
 - `pnpm build` genera el registry y compila la web.
 - `pnpm lint` excluye el código oficial de AlignUI, que se mantiene tal cual.
 
-## Desplegar en Vercel
+## Despliegue
 
-1. Importa el repositorio en Vercel (framework Next.js, sin configuración extra).
-2. Las URLs del registry y del MCP se toman de `VERCEL_PROJECT_PRODUCTION_URL`.
-3. Con un dominio propio, define `REGISTRY_URL=https://tu-dominio.com` en las variables de entorno.
+Desplegado en Vercel (proyecto `alignui-mcp`) con la integración Git:
+
+- Cada push a `master` publica en producción: https://alignui-mcp.vercel.app
+- Cada push a otra rama o PR genera un preview.
+- `REGISTRY_URL=https://alignui-mcp.vercel.app` está definida en Production y Preview, así las URLs del registry y del MCP siempre apuntan al dominio de producción.
+
+Para desplegar tu propia copia: importa el repo en Vercel (Next.js, sin configuración extra) y define `REGISTRY_URL` con tu dominio.
 
 ## Cómo se arma el registry
 

@@ -19,6 +19,6 @@
   },
   "iconLibrary": "remixicon",
   "registries": {
-    "@alignui": "http://localhost:3000/r/{name}.json"
+    "@alignui": "https://alignui-mcp.vercel.app/r/{name}.json"
   }
 }
