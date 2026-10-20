@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 
 const COMPONENTS_JSON = (url: string) => `{
   "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
   "rsc": true,
   "tsx": true,
   "tailwind": {

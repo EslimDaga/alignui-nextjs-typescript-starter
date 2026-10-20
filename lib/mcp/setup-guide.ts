@@ -13,6 +13,7 @@ const RUNNERS: Record<PackageManager, string> = {
 
 const COMPONENTS_JSON = {
   $schema: 'https://ui.shadcn.com/schema.json',
+  style: 'new-york',
   rsc: true,
   tsx: true,
   tailwind: {
